@@ -1,4 +1,4 @@
-package com.jckang.ex02;
+package com.jckang.ex02.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

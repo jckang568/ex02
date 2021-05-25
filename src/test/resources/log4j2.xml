@@ -5,7 +5,7 @@
 		<Console name="AnsiConsole" target="SYSTEM_OUT">
 			<PatternLayout>
 				<!-- [%marker][%markerSimpleName] -->
-				<Pattern>[%highlight{%5p}]%d [%style{%c{1.}}{bright,yellow}][%M:%L] %n %m %n</Pattern>
+				<Pattern>[%highlight{%5p}]%d [%style{%c{1.}}{bright,yellow}][%M:%L] [%marker] [%markerSimpleName] %n %m %n</Pattern>
 				<!-- <Pattern>%highlight{%d [%t] %-5level: %msg%n%throwable}{STYLE=Logback}</Pattern> -->
 				<disableAnsi>false</disableAnsi>
 			</PatternLayout>

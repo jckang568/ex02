@@ -44,4 +44,9 @@
 	<mybatis-spring:scan
 		base-package="com.jckang.ex02.mapper" />
 
+	<!-- 비즈니스 계층의 인터페이스와 구현 클래스가 작성되었다면, 이를 스프링의 빈으로 인식하기 위해서 root-context.xml에 
+		@Service 어노테이션이 있는 com.jckang.ex02 패키지를 스캔(조사)하도록 추가해야합니다. -->
+	<context:component-scan
+		base-package="com.jckang.ex02.service"></context:component-scan>
+
 </beans>
