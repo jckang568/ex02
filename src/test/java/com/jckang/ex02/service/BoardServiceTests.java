@@ -1,5 +1,6 @@
 package com.jckang.ex02.service;
 
+import com.jckang.ex02.domain.Criteria;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -41,7 +42,7 @@ public class BoardServiceTests {
 	
 	@Test
 	public void testGetList() {
-		service.getList().forEach(board -> log.info(board));
+		service.getList(new Criteria(10, 10)).forEach(board -> log.info(board));
 	}
 	
 	@Test

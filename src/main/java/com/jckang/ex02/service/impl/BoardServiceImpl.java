@@ -2,6 +2,7 @@ package com.jckang.ex02.service.impl;
 
 import java.util.List;
 
+import com.jckang.ex02.domain.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,8 +44,15 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
+	public List<BoardVO> getList(Criteria criteria) {
+		log.info("BoardServiceImpl < getList passed................." + criteria);
+		return mapper.getListWithPaging(criteria);
+	}
+	/*
+	@Override
 	public List<BoardVO> getList() {
 		log.info("BoardServiceImpl < getList passed.................");
 		return mapper.getList();
 	}
+	*/
 }

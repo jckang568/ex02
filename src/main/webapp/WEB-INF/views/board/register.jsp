@@ -16,13 +16,13 @@ body {
 </style>
 <script>
 	function registBoardContent() {
-		$('#boardForm').find('input, textarea').each(function(index) {
+		$('#boardForm').find('input,textarea').each(function(index) {
 			if(!this.value){
 				this.focus();
 				alert(this.name + "을/를 입력해주세요.");
 				return false;
 			} else {
-				$('#boardForm').submit();
+				$('#boardForm').trigger("submit");
 			}
 		});
 	}
