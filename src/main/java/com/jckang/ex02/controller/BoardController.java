@@ -33,6 +33,8 @@ public class BoardController {
 
     @GetMapping("/list")
     public void list(Criteria criteria, Model model) {
+        log.info("test...............................................");
+        log.info("test...............................................");
         log.info("BoardController < list passed......................." + criteria);
         model.addAttribute("list", service.getList(criteria));
         model.addAttribute("pageMaker", new PageDTO(criteria, 123));

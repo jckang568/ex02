@@ -78,17 +78,26 @@
         <!-- table end -->
         <!-- start pagination -->
         <div class="pull-right">
-            <ul class="pagination">
-                <c:if test="${pageMaker.prev}">
-                    <li class="paginate_button previous"><a href="#">Previous</a></li>
-                </c:if>
-                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                    <li class="paginate_button"><a href="#">${num}</a></li>
-                </c:forEach>
-                <c:if test="${pageMaker.next}">
-                    <li class="paginate_button next"><a href="#">Next</a></li>
-                </c:if>
-            </ul>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <c:if test="${pageMaker.prev}">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    </c:if>
+                    <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                        <c:choose>
+                            <c:when test="${num eq 1}">
+                                <li class="page-item active"><a class="page-link" href="#">${num}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="page-item"><a class="page-link" href="#">${num}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <c:if test="${pageMaker.next}">
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </c:if>
+                </ul>
+            </nav>
         </div>
         <!-- end Pagination -->
     </div>
