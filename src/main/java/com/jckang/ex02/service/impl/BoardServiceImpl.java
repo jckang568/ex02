@@ -21,7 +21,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public void register(BoardVO board) {
-		log.info("BoardServiceImpl > register passed..................." + board);
+		log.info("BoardServiceImpl < register passed..................." + board);
 		mapper.insertSelectKey(board);
 	}
 
@@ -47,6 +47,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getList(Criteria criteria) {
 		log.info("BoardServiceImpl < getList passed................." + criteria);
 		return mapper.getListWithPaging(criteria);
+	}
+
+	@Override
+	public int getTotal(Criteria criteria) {
+		log.info("BoardServiceImpl < getTotal passed................." + criteria);
+		return mapper.getTotalCount(criteria);
 	}
 	/*
 	@Override

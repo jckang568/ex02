@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/*!
+ * 공통 css
+ */
+body {
+    padding-top: 56px;
+    overflow-y: scroll;
+}

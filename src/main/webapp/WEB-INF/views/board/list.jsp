@@ -3,32 +3,48 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" charset="UTF-8"/>
     <title>글 목록 페이지</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/common.css">
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/js/jquery-3.6.0.min.js"></script>
-    <style type="text/css">
-        body {
-            padding-top: 56px;
-            overflow-y: scroll;
-        }
-    </style>
     <script>
         $(function () {
             var result = '<c:out value="${result}"/>';
-            checkModal(result);
+            var service = '<c:out value="${service}"/>';
+            checkModal(result, service);
             history.replaceState({}, null, null);
+
+            var actionForm = $("#actionForm");
+            $('.page-item a').on("click", function (e) {
+                e.preventDefault();
+                actionForm.find('input[name="pageNum"]').val($(this).attr("href"));
+                actionForm.trigger("submit");
+            });
+
+            $('.get-detail').on('click', function (e) {
+                e.preventDefault();
+                console.log($(this).attr("href"));
+                actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
+                actionForm.attr("action", "/board/get");
+                actionForm.trigger("submit");
+            });
+
         });
 
-        function checkModal(result) {
+        function checkModal(result, service) {
             if (result == '' || history.state) {
                 return;
             }
-            if (parseInt(result) > 0) {
+            if (service == 'register') {
                 $(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+            } else if (service == 'modify') {
+                $(".modal-body").html("게시글 " + parseInt(result) + " 번이 수정되었습니다.");
+            } else if (service == 'remove') {
+                $(".modal-body").html("게시글 " + parseInt(result) + " 번이 삭제되었습니다.");
             }
             $("#myModal").modal("show");
         }
@@ -39,12 +55,12 @@
 <main class="container p-3">
     <div class="d-flex bd-highlight mb-2">
         <div class="me-auto p-2 bd-highlight align-self-end">
-            <span class="align-bottom">* 개의 글</span>
+            <span class="align-bottom"><c:out value="${pageMaker.total }" /> 개의 글</span>
         </div>
         <!-- <div class="p-2 bd-highlight">Flex item</div> -->
         <div class="p-2 bd-highlight">
             <button type="button" class="btn btn-primary"
-                    onclick="location.href='/board/register'">글 작성
+                    onclick="location.href='/board/register'">글 작성ff
             </button>
         </div>
     </div>
@@ -62,45 +78,56 @@
             <tbody>
             <c:forEach items="${list}" var="board">
                 <tr>
-                    <th scope="row"><c:out value="${board.bno }"/></th>
-                    <td><a href='/board/get?bno=<c:out value="${board.bno }"/>'>
-                        <c:out value="${board.title }"/>
-                    </a></td>
-                    <td><c:out value="${board.writer }"/></td>
-                    <td><fmt:formatDate pattern="yyyy-MM-dd"
-                                        value="${board.regDate }"/></td>
-                    <td><fmt:formatDate pattern="yyyy-MM-dd"
-                                        value="${board.updateDate }"/></td>
+                    <th scope="row">
+                        <c:out value="${board.bno }"/>
+                    </th>
+                    <td>
+                        <a class='get-detail' href='<c:out value="${board.bno }"/>'><c:out value="${board.title }"/></a>
+                    </td>
+                    <td>
+                        <c:out value="${board.writer }"/>
+                    </td>
+                    <td>
+                        <fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate }"/>
+                    </td>
+                    <td>
+                        <fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }"/>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
         <!-- table end -->
-        <!-- start pagination -->
-        <div class="pull-right">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    <c:if test="${pageMaker.prev}">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    </c:if>
-                    <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                        <c:choose>
-                            <c:when test="${num eq 1}">
-                                <li class="page-item active"><a class="page-link" href="#">${num}</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li class="page-item"><a class="page-link" href="#">${num}</a></li>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
-                    <c:if test="${pageMaker.next}">
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </c:if>
-                </ul>
-            </nav>
-        </div>
-        <!-- end Pagination -->
     </div>
+    <!-- pageMaker Form Start -->
+    <form id="actionForm" action="/board/list" method="get">
+        <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+    </form>
+
+    <!-- start pagination -->
+    <div class="pull-right mt-3">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <c:if test="${pageMaker.prev}">
+                    <li class="page-item">
+                        <a class="page-link" href="${pageMaker.startPage - 1}">Previous</a>
+                    </li>
+                </c:if>
+                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                    <li class="page-item ${pageMaker.cri.pageNum == num ? "active" : ""}">
+                        <a class="page-link page-number" href="${num}">${num}</a>
+                    </li>
+                </c:forEach>
+                <c:if test="${pageMaker.next}">
+                    <li class="page-item">
+                        <a class="page-link" href="${pageMaker.endPage + 1}">Next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </nav>
+    </div>
+    <!-- end Pagination -->
 </main>
 
 <!-- Modal Start -->
@@ -116,8 +143,7 @@
                 <!-- <p>Modal body text goes here.</p> -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
         </div>

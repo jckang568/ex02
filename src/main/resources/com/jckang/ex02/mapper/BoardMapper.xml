@@ -73,8 +73,16 @@
 		WHERE
 			BNO = #{bno}
 	</select>
-	
-	<delete id="delete">
+    <select id="getTotalCount" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			TBL_BOARD
+		WHERE
+			BNO > 0
+	</select>
+
+    <delete id="delete">
 		DELETE FROM
 			TBL_BOARD
 		WHERE
