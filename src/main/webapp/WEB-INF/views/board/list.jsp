@@ -7,18 +7,23 @@
 <head>
     <meta name="viewport" content="width=device-width" charset="UTF-8"/>
     <title>글 목록 페이지</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/common.css">
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/common.css"/>">
+    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery-3.6.0.min.js"/>"></script>
     <script>
+
+        <%--@elvariable id="result" type="java.lang.Long"--%>
+        <%--@elvariable id="service" type="java.lang.String"--%>
         $(function () {
-            var result = '<c:out value="${result}"/>';
-            var service = '<c:out value="${service}"/>';
+            let result = '<c:out value="${result}"/>';
+            let service = '<c:out value="${service}"/>';
+            console.log(result);
+            console.log(service);
             checkModal(result, service);
             history.replaceState({}, null, null);
 
-            var actionForm = $("#actionForm");
+            let actionForm = $("#actionForm");
             $('.page-item a').on("click", function (e) {
                 e.preventDefault();
                 actionForm.find('input[name="pageNum"]').val($(this).attr("href"));
@@ -36,14 +41,14 @@
         });
 
         function checkModal(result, service) {
-            if (result == '' || history.state) {
+            if (result === '' || history.state) {
                 return;
             }
-            if (service == 'register') {
+            if (service === 'register') {
                 $(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
-            } else if (service == 'modify') {
+            } else if (service === 'modify') {
                 $(".modal-body").html("게시글 " + parseInt(result) + " 번이 수정되었습니다.");
-            } else if (service == 'remove') {
+            } else if (service === 'remove') {
                 $(".modal-body").html("게시글 " + parseInt(result) + " 번이 삭제되었습니다.");
             }
             $("#myModal").modal("show");
@@ -60,7 +65,7 @@
         <!-- <div class="p-2 bd-highlight">Flex item</div> -->
         <div class="p-2 bd-highlight">
             <button type="button" class="btn btn-primary"
-                    onclick="location.href='/board/register'">글 작성ff
+                    onclick="location.href='/board/register'">글 작성
             </button>
         </div>
     </div>
@@ -76,6 +81,7 @@
             </tr>
             </thead>
             <tbody>
+            <%--@elvariable id="list" type="java.util.List<com.jckang.ex02.domain.BoardVO>"--%>
             <c:forEach items="${list}" var="board">
                 <tr>
                     <th scope="row">
@@ -100,7 +106,8 @@
         <!-- table end -->
     </div>
     <!-- pageMaker Form Start -->
-    <form id="actionForm" action="/board/list" method="get">
+    <%--@elvariable id="pageMaker" type="com.jckang.ex02.domain.PageDTO"--%>
+    <form id="actionForm" action="${pageContext.request.contextPath}/board/list" method="get">
         <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
         <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
     </form>

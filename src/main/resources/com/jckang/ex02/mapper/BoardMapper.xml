@@ -45,7 +45,6 @@
 		#{writer}
 		)
 	</insert>
-	
 	<insert id="insertSelectKey">
 		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
 			SELECT SEQ_BOARD.NEXTVAL FROM DUAL

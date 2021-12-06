@@ -1,47 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="OFF">
-	<appenders>
+<Configuration status="OFF">
+	<Filters>
+		<MarkerFilter marker="LOG4JDBC_CONNECTION" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<MarkerFilter marker="LOG4JDBC_SQL" onMatch="ACCEPT" onMisMatch="NEUTRAL" />
+		<MarkerFilter marker="LOG4JDBC_RESULTSETTABLE" onMatch="ACCEPT" onMisMatch="NEUTRAL" />
+		<MarkerFilter marker="LOG4JDBC_OTHER" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<MarkerFilter marker="LOG4JDBC_AUDIT" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<RegexFilter regex=".* org.apache.commons.dbcp .*" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<RegexFilter regex=".* select 1 .*" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<RegexFilter regex=".* \|1\s\| .*" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<RegexFilter regex=".* |--| .*" onMatch="DENY" onMisMatch="NEUTRAL" />
+		<RegexFilter regex=".* \|\-\-\| .*" onMatch="DENY" onMisMatch="NEUTRAL" />
+	</Filters>
+	<Appenders>
 		<Console name="AnsiConsole" target="SYSTEM_OUT">
 			<PatternLayout>
 				<!-- [%marker][%markerSimpleName] -->
-				<Pattern>[%highlight{%5p}]%d [%style{%c{1.}}{bright,yellow}][%M:%L] %n %m %n</Pattern>
+				<Pattern>[%highlight{%5p}]%d [%style{%c}{bright,yellow}][%M:%L][%marker][%markerSimpleName] %n %m %n</Pattern>
 				<!-- <Pattern>%highlight{%d [%t] %-5level: %msg%n%throwable}{STYLE=Logback}</Pattern> -->
 				<disableAnsi>false</disableAnsi>
 			</PatternLayout>
 		</Console>
-	</appenders>
-	<loggers>
-		<root level="TRACE">
-			<appender-ref ref="AnsiConsole" />
-		</root>
-		<logger name="com.jckang.ex00" level="DEBUG" additivity="false">
+	</Appenders>
+	<Loggers>
+		<Root level="TRACE">
+			<Appender-ref ref="AnsiConsole" />
+		</Root>
+		<Logger name="egovframework" level="DEBUG" additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework" level="DEBUG"
-			additivity="false">
+		</Logger>
+		<Logger name="egovframework.itgcms.common.CommonController" level="INFO" additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.beans" level="DEBUG"
-			additivity="false">
+		</Logger>
+		<Logger name="org.springframework" level="INFO"
+				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.core" level="DEBUG"
-			additivity="false">
+		</Logger>
+		<Logger name="org.springframework.context" level="INFO"
+				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.context" level="DEBUG"
-			additivity="false">
+		</Logger>
+		<Logger name="org.springframework.beans" level="OFF"
+				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.web" level="DEBUG"
-			additivity="false">
+		</Logger>
+		<Logger name="org.springframework.core" level="INFO"
+				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="java.sql" level="DEBUG" additivity="false">
+		</Logger>
+		<Logger name="org.springframework.context" level="DEBUG"
+				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+		</Logger>
+		<Logger name="org.springframework.web" level="DEBUG"
+				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
-		</logger>
-	</loggers>
-</configuration>
+		</Logger>
+		<Logger name="org.springframework.web.servlet" level="DEBUG"
+				additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="org.springframework.web.servlet.handler" level="INFO"
+				additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="org.springframework.web.servlet.mvc" level="INFO"
+				additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="java.sql" level="DEBUG" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="jdbc.resultsettable" level="DEBUG" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="jdbc.resultset" level="DEBUG" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="org.apache.commons" level="OFF" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="org.mybatis.spring" level="INFO" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="logj4dbc.log4j2" level="DEBUG" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+	</Loggers>
+</Configuration>
