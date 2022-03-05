@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Oracle ATP" uuid="715e9838-159a-4268-b6d7-f8b73f98c240">
+      <driver-ref>java.sql.Driver</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <remarks>Oracle ATP test2</remarks>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@test2_high?TNS_ADMIN=$PROJECT_DIR$/../../../tools/db/Wallet_test2</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/*!
+ * Map css
+ */
+
+
+/* 맵 포인트 */
+.btn_map-point{
+    border:1px solid #1e71be;
+    background:#fff;
+    border-radius:20px;
+    height:40px;
+    font-size:14px;
+    letter-spacing:-0.04em;
+    line-height:38px;
+    text-align:center;
+    padding:0 8px;
+    white-space:nowrap;
+}
+.btn_map-point:before{
+    display:inline-block;
+    content:"";
+    width:28px;
+    height:28px;
+    border-radius:100%;
+    background:#1e71be url(/resources/images/ico_map-point.png) no-repeat center;
+    vertical-align:middle;
+    margin:-4px 7px 0 0;
+}
+
+.num_notice-flag{
+    position:absolute;
+    right:-11px;
+    top:-17px;
+    border:1px solid #1e71be;
+    border-radius:12px;
+    display:inline-block;
+    background:#fff;
+    min-width:40px;
+    padding:0 10px;
+    line-height:23px;
+    height:25px;
+    font-size:14px;
+    letter-spacing:-0.04em;
+}
+
+button, input[type=submit] {border:0; padding:0; cursor:pointer; background:transparent;}
