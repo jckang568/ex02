@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j2;
 public class JDBCTests {
 	static {
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -30,8 +30,12 @@ public class JDBCTests {
 			log.info(con);
 			con.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
 			fail("error occured");
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		} finally {
+
 		}
 	}
 }

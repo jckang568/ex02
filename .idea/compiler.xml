@@ -10,7 +10,7 @@
         <module name="ex02" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11">
       <module name="ex02" target="11" />
     </bytecodeTargetLevel>
   </component>

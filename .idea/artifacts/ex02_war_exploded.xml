@@ -45,7 +45,11 @@
           <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.8.0-M1" />
           <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.20" />
           <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.20" />
-          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:ojdbc8:21.3.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:ojdbc8:19.6.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:ucp:19.6.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.security:oraclepki:19.6.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.security:osdt_cert:19.6.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.security:osdt_core:19.6.0.0" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:4.0.3" />
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.12.1" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />

@@ -3,7 +3,6 @@
  * Globals
  */
 
-
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -51,4 +50,85 @@ body {
 .nav-masthead .active {
     color: #fff;
     border-bottom-color: #fff;
+}
+
+@media screen and (max-width: 6000px) {
+    html {
+        font-size: 18px
+    }
+
+    /* 반응형 일 때 */
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 5rem;
+    }
+}
+@media (min-width: 382px) {
+    div.box {
+        width: 62px;
+        height: 62px;
+    }
+}
+@media (max-width: 381px) {
+    div.box {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.square {
+    width: 90%;
+    position: relative;
+}
+
+.square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.centered {
+    vertical-align: middle;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.align-flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .fs-7 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fs-7 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 508px) {
+    .fs-7 {
+        font-size: 1.5rem;
+    }
 }
