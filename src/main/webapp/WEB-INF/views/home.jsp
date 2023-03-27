@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page session="false" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html class="h-100">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,9 +32,10 @@
             <h3 class="float-md-start mb-0">G.F.D</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="<c:url value="/board/list"/>">Features</a>
-                <a class="nav-link" href="<c:url value="/popup/map"/>">Map</a>
-                <a class="nav-link" href="<c:url value="/game/guesswhat"/>">GW</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/board/list">Features</a>
+
+                <a class="nav-link" href="${pageContext.request.contextPath}/popup/map">Map</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/game/guesswhat">GW</a>
             </nav>
         </div>
     </header>

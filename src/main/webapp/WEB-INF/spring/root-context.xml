@@ -3,10 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-       xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+       xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring https://mybatis.org/schema/mybatis-spring.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd"
 >
+
 
     <!-- Root Context: defines shared resources visible to all other web components -->
 
@@ -17,16 +18,17 @@
         <!-- <property name="driverClassName" value="oracle.jdbc.OracleDriver"></property> -->
         <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
 
-        <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@test2_medium?TNS_ADMIN=D:/dev/tools/db/Wallet_test2" />
-        <!--<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@test2_medium?TNS_ADMIN=/home/opc/Wallet_test2"/>-->
+        <property name="jdbcUrl"
+                  value="jdbc:log4jdbc:oracle:thin:@ex02_medium?TNS_ADMIN=C:/Users/jckang/OneDrive/Documents/dev/db/Wallet_ex02"/>
+        <!--<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@ex02_high?TNS_ADMIN=/home/opc/Wallet_ex02"/>-->
         <property name="username" value="ADMIN"/>
         <property name="password" value="Oracledatabase!486@"/>
-        <property name="connectionTimeout" value="120000" />
-        <property name="idleTimeout" value="15000" />
-        <property name="leakDetectionThreshold" value="120000" />
-        <property name="validationTimeout" value="10000" />
-        <property name="maxLifetime" value="120000" />
-        <property name="maximumPoolSize" value="5" />
+        <property name="connectionTimeout" value="120000"/>
+        <property name="idleTimeout" value="15000"/>
+        <property name="leakDetectionThreshold" value="120000"/>
+        <property name="validationTimeout" value="10000"/>
+        <property name="maxLifetime" value="120000"/>
+        <property name="maximumPoolSize" value="5"/>
     </bean>
     <!-- HikariCP configuration -->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
@@ -46,6 +48,7 @@
         찾아서 처리합니다. Mapper를 설정하는 작업은 각각의 XML이나 Mapper 인터페이스를 설정할 수도 있지만, 매번 너무 번잡하기
         때문에 예제는 자동으로 com.jckang.ex02.mapper 패키지를 인식하는 방식으로 작성하는 것이 가장 편리합니다. -->
     <mybatis-spring:scan base-package="com.jckang.ex02.mapper"/>
+
 
     <!-- 비즈니스 계층의 인터페이스와 구현 클래스가 작성되었다면, 이를 스프링의 빈으로 인식하기 위해서 root-context.xml에
         @Service 어노테이션이 있는 com.jckang.ex02 패키지를 스캔(조사)하도록 추가해야합니다. -->

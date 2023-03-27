@@ -17,6 +17,9 @@ import com.jckang.ex02.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @Log4j2
 @RequestMapping("/board/*")
@@ -35,11 +38,15 @@ public class BoardController {
 
     @GetMapping("/list")
     public void list(Criteria criteria, Model model) {
+        Map<String, Object> test = new HashMap<>();
+        test.put("test", "test");
+        test.get("test");
         log.info("BoardController < list passed......................." + criteria);
         model.addAttribute("list", service.getList(criteria));
         /*model.addAttribute("pageMaker", new PageDTO(criteria, 123));*/
         int total = service.getTotal(criteria);
         log.info("total: " + total);
+        System.out.println();
         model.addAttribute("pageMaker", new PageDTO(criteria, total));
     }
 
@@ -88,7 +95,17 @@ public class BoardController {
 
     @GetMapping("/register")
     public void register() {
+        // TODO: 2022-10-21  
+    }
 
+    @GetMapping("/test")
+    public void test() {
+        // TODO: 2022-10-21
+
+
+        try{}catch (Exception e){
+
+        }
     }
 
 }

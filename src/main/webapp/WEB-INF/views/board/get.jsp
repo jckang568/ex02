@@ -7,8 +7,8 @@
 <head>
     <meta name="viewport" content="width=device-width" charset="UTF-8"/>
     <title>글 조회 페이지</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/js/jquery-3.6.0.min.js"></script>
     <script>

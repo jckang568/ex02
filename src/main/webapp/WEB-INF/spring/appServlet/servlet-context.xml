@@ -17,6 +17,10 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/favicon.ico" location="/resources/ico/" />
 
+	<interceptors>
+		<beans:bean class="com.jckang.ex02.interceptor.LoggingInterceptor" />
+	</interceptors>
+
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />

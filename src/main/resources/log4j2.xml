@@ -13,6 +13,7 @@
 		<RegexFilter regex=".* \|\-\-\| .*" onMatch="DENY" onMisMatch="NEUTRAL" />
 	</Filters>
 	<Appenders>
+		<!-- https://logging.apache.org/log4j/2.x/manual/layouts.html -->
 		<Console name="AnsiConsole" target="SYSTEM_OUT">
 			<PatternLayout>
 				<!-- [%marker][%markerSimpleName] -->
@@ -26,12 +27,6 @@
 		<Root level="TRACE">
 			<Appender-ref ref="AnsiConsole" />
 		</Root>
-		<Logger name="egovframework" level="DEBUG" additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</Logger>
-		<Logger name="egovframework.itgcms.common.CommonController" level="INFO" additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</Logger>
 		<Logger name="org.springframework" level="INFO"
 				additivity="false">
 			<AppenderRef ref="AnsiConsole" />
@@ -86,7 +81,10 @@
 		<Logger name="org.mybatis.spring" level="INFO" additivity="false">
 			<AppenderRef ref="AnsiConsole" />
 		</Logger>
-		<Logger name="logj4dbc.log4j2" level="DEBUG" additivity="false">
+		<Logger name="log4jdbc.log4j2" level="DEBUG" additivity="false">
+			<AppenderRef ref="AnsiConsole" />
+		</Logger>
+		<Logger name="com.zaxxer.hikari.pool" level="INFO" additivity="false">
 			<AppenderRef ref="AnsiConsole" />
 		</Logger>
 	</Loggers>
