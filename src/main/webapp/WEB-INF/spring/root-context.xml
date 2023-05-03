@@ -19,7 +19,7 @@
 
 <!--        <property name="jdbcUrl"-->
 <!--                  value="jdbc:log4jdbc:oracle:thin:@ex02_medium?TNS_ADMIN=/Users/jckang/Dev/Oracle/Wallet/ex02"/>-->
-        <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@test2_medium?TNS_ADMIN=/home/opc/Dev/Oracle/Wallet/ex02"/>
+        <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@ex02_medium?TNS_ADMIN=/home/opc/Dev/Oracle/Wallet/ex02"/>
         <property name="username" value="ADMIN"/>
         <property name="password" value="Oracledatabase!486@"/>
         <property name="connectionTimeout" value="120000"/>
