@@ -6,6 +6,7 @@
     <title>Ground for development</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+    <link rel="icon" href="<c:url value="/resources/ico/favicon.ico"/>">
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/resources/js/jquery-3.6.0.min.js"/>"></script>
     <style>

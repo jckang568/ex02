@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
 <configuration status="OFF">
-	<appenders>
-		<Console name="AnsiConsole" target="SYSTEM_OUT">
-			<PatternLayout>
-				<!-- [%marker][%markerSimpleName] -->
-				<Pattern>[%highlight{%5p}]%d [%style{%c{1.}}{bright,yellow}][%M:%L] [%marker] [%markerSimpleName] %n %m %n</Pattern>
-				<!-- <Pattern>%highlight{%d [%t] %-5level: %msg%n%throwable}{STYLE=Logback}</Pattern> -->
-				<disableAnsi>false</disableAnsi>
-			</PatternLayout>
-		</Console>
-	</appenders>
-	<loggers>
-		<root level="TRACE">
-			<appender-ref ref="AnsiConsole" />
-		</root>
-		<logger name="com.jckang.ex00" level="DEBUG" additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework" level="DEBUG"
-			additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.beans" level="DEBUG"
-			additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.core" level="DEBUG"
-			additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.context" level="DEBUG"
-			additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="org.springframework.web" level="DEBUG"
-			additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="java.sql" level="DEBUG" additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-		<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
-			<AppenderRef ref="AnsiConsole" />
-		</logger>
-	</loggers>
+    <appenders>
+        <Console name="AnsiConsole" target="SYSTEM_OUT">
+            <PatternLayout>
+                <!-- [%marker][%markerSimpleName] -->
+                <Pattern>[%highlight{%5p}]%d [%style{%c{1.}}{bright,yellow}][%M:%L] [%marker] [%markerSimpleName] %n %m %n</Pattern>
+                <!-- <Pattern>%highlight{%d [%t] %-5level: %msg%n%throwable}{STYLE=Logback}</Pattern> -->
+                <disableAnsi>false</disableAnsi>
+            </PatternLayout>
+        </Console>
+    </appenders>
+    <loggers>
+        <root>
+            <level>TRACE</level>
+            <appender-ref ref="AnsiConsole"/>
+        </root>
+        <logger name="com.jckang.ex00" level="DEBUG" additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="org.springframework" level="DEBUG"
+                additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="org.springframework.beans" level="DEBUG"
+                additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="org.springframework.core" level="DEBUG"
+                additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="org.springframework.context" level="DEBUG"
+                additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="org.springframework.web" level="DEBUG"
+                additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="java.sql" level="DEBUG" additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+        <logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+            <AppenderRef ref="AnsiConsole"/>
+        </logger>
+    </loggers>
 </configuration>
