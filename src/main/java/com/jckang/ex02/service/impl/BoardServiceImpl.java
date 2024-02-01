@@ -3,6 +3,7 @@ package com.jckang.ex02.service.impl;
 import java.util.List;
 
 import com.jckang.ex02.domain.Criteria;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,8 @@ import com.jckang.ex02.mapper.BoardMapper;
 import com.jckang.ex02.service.BoardService;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j2;
 
-@Log4j2
+@Slf4j
 @Service
 public class BoardServiceImpl implements BoardService{
 	@Setter(onMethod_ = @Autowired)
@@ -22,6 +22,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void register(BoardVO board) {
 		log.info("BoardServiceImpl < register passed..................." + board);
+		log.info("TEst: {}, {}, {}", board.getBno(), board.getWriter(), board.getTitle());
 		mapper.insertSelectKey(board);
 	}
 

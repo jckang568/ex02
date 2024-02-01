@@ -4,11 +4,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ground for development</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
-    <link rel="icon" href="<c:url value="/resources/ico/favicon.ico"/>">
-    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery-3.6.0.min.js"/>"></script>
+    <link rel="stylesheet" href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="${pageContext.request.contextPath}/resources/css/home.css"/>">
+    <link rel="icon" href="<c:url value="${pageContext.request.contextPath}/resources/ico/favicon.ico"/>">
+    <script src="<c:url value="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"/>"></script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -37,6 +37,7 @@
 
                 <a class="nav-link" href="${pageContext.request.contextPath}/popup/map">Map</a>
                 <a class="nav-link" href="${pageContext.request.contextPath}/game/guesswhat">GW</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/test">TEST</a>
             </nav>
         </div>
     </header>

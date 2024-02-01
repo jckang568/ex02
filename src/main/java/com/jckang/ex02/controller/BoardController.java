@@ -28,7 +28,7 @@ public class BoardController {
 
     private final BoardService service;
 
-	/*
+    /*
 	@GetMapping("/list")
 	public void list(Model model) {
 		log.info("BoardController < list passed.......................");
