@@ -23,9 +23,9 @@ public class JDBCTests {
 	
 	@Test
 	public void testConnection() {
-		String url = "jdbc:oracle:thin:@test2_medium?TNS_ADMIN=D:/dev/tools/db/Wallet_test2";
+		String url = "jdbc:oracle:thin:@test_medium?TNS_ADMIN=/home/opc/Dev/Oracle/Wallet/Wallet_test";
 		String id = "ADMIN";
-		String password ="Oracledatabase!486@";
+		String password ="Oracledb!486@";
 		try(Connection con = DriverManager.getConnection(url, id, password)){
 			log.info(con);
 			con.close();
